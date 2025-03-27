@@ -1,6 +1,7 @@
 import threading
 
 import mido
+import pyvjoy
 
 selected = None
 options = mido.get_input_names()
@@ -47,10 +48,13 @@ midi = AkaiMpkMini(selected)
 
 midi.startMonitor()
 
+joydevice = pyvjoy.VJoyDevice(1)
+
 print(midi.pads)
 oldPads = midi.pads
 while True:
-    print(midi.pads)
     if not midi.pads == oldPads:
         print(midi.pads)
         oldPads = midi.pads
+        for i,pad in enumerate(midi.pads):
+            joydevice.set_button(i,pad)
