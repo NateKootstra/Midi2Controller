@@ -4,10 +4,19 @@ import mido
 
 selected = None
 options = mido.get_input_names()
+print("MIDI Inputs:")
+print()
 for i, option in enumerate(options):
     print(str(i + 1) + ". " + option)
+print()
+if len(options) == 0:
+    print("No MIDI Inputs found.")
+    exit()
+elif len(options) == 1:
+    print("Input (1):")
+else:
+    print("Input (1-" + str(len(options)) + ")")
 selected = mido.open_input(options[int(input()) - 1])
-    
 class AkaiMpkMini:
     device = None
     
