@@ -57,4 +57,4 @@ while True:
         print(midi.pads)
         oldPads = midi.pads.copy()
         for i,pad in enumerate(midi.pads):
-            joydevice.set_button(i,pad)
+            joydevice.set_button(i,int(pad))
