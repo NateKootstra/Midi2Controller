@@ -48,7 +48,7 @@ midi = AkaiMpkMini(selected)
 
 midi.startMonitor()
 
-joydevice = pyvjoy.VJoyDevice(2)
+joydevice = pyvjoy.VJoyDevice(1)
 
 print(midi.pads)
 oldPads = midi.pads.copy()
