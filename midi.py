@@ -53,7 +53,6 @@ joydevice = pyvjoy.VJoyDevice(1)
 print(midi.pads)
 oldPads = midi.pads.copy()
 while True:
-    print(oldPads)
     if not midi.pads == oldPads:
         print(midi.pads)
         oldPads = midi.pads.copy()
