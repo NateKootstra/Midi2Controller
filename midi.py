@@ -49,7 +49,6 @@ midi = AkaiMpkMini(selected)
 midi.startMonitor()
 
 joydevice = pyvjoy.VJoyDevice(2)
-joydevice.set_button(0, True)
 
 print(midi.pads)
 oldPads = midi.pads.copy()
@@ -57,5 +56,5 @@ while True:
     if not midi.pads == oldPads:
         print(midi.pads)
         oldPads = midi.pads.copy()
-        # for i,pad in enumerate(midi.pads):
-        #     joydevice.set_button(i,pad)
+        for i,pad in enumerate(midi.pads):
+            joydevice.set_button(i + 1, int(pad))
