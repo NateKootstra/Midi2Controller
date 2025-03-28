@@ -69,4 +69,4 @@ while True:
     if not midi.black == oldBlack:
         oldBlack = midi.black.copy()
         for i,black in enumerate(midi.black):
-            joydevice.set_button(i + 9, int(pad))
+            joydevice.set_button(i + 9, int(black))
