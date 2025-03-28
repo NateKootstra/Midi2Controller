@@ -15,10 +15,11 @@ if len(options) == 0:
     print("No MIDI Inputs found.")
     exit()
 elif len(options) == 1:
-    print("Input (1):")
+    selected = mido.open_input(options[0])
 else:
     print("Input (1-" + str(len(options)) + ")")
-selected = mido.open_input(options[int(input()) - 1])
+if selected == None:
+    selected = mido.open_input(options[int(input()) - 1])
 class AkaiMpkMini:
     device = None
     
@@ -61,7 +62,6 @@ joydevice = pyvjoy.VJoyDevice(1)
 oldPads = midi.pads.copy()
 oldBlack = midi.black.copy()
 while True:
-    print(midi.black)
     if not midi.pads == oldPads:
         oldPads = midi.pads.copy()
         for i,pad in enumerate(midi.pads):
